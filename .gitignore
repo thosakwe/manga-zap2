@@ -4,6 +4,7 @@
 .buildlog
 .packages
 .project
+.scripts-bin/
 .pub/
 build/
 **/packages/

@@ -1,0 +1,17 @@
+<div *ngIf="loading" class="content">
+    <material-spinner></material-spinner>
+    <br><br>
+    Loading manga...
+</div>
+<div *ngIf="!loading && mangas.isEmpty" class="content">
+    <h1>No Manga Found.</h1>
+    <p>It's the end of the world.</p>
+    <br>
+    <material-button (click)="fetchMangas()" raised>Reload</material-button>
+</div>
+<material-menu *ngIf="!loading && mangas.isNotEmpty">
+    <menu-item *ngFor="let manga of mangas" [avatar]="manga['im'] | eden_image"
+        [routerLink]="['../Detail', {id: manga['i']}]">
+        {{ manga['t'] }}
+    </menu-item>
+</material-menu>

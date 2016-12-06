@@ -1,0 +1,23 @@
+author: "Tobe O <thosakwe@gmail.com>"
+description: "Manga Eden client PWA."
+homepage: "https://github.com/thosakwe/manga-zap2.git"
+name: "manga_zap"
+publish_to: "none"
+version: "1.0.0"
+dependencies: 
+  angular2: "^2.2.0"
+  angular2_components: "^0.2.1"
+  http: "^0.11.3+9"
+  material_menu: "^1.0.0"
+  material_toolbar: "^1.0.0"
+dev_dependencies: 
+  browser: "^0.10.0+2"
+  dart_to_js_script_rewriter: "^1.0.2"
+transformers:
+- angular2:
+    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
+    entry_points: web/main.dart
+- dart_to_js_script_rewriter
