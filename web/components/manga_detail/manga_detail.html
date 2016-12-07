@@ -10,8 +10,9 @@
     <div class="content grid">
         <div class="col" style="text-align: center;">
             <img src="{{ manga['image'] | eden_image }}" style="max-width: 20em">
-            <material-checkbox (ngModel)="updateFavorites($event)"
-                [ngModel]="favorites.contains(id)"></material-checkbox>
+            <material-checkbox (checkedChange)="updateFavorites($event)"
+                [checked]="favorites.contains(id)"></material-checkbox>
+                Favorite
         </div>
         <div class="content col">
             <h3>{{ manga['title'] }} by {{ manga['author']?.isNotEmpty == true ? manga['author'] : 'Unknown Author' }}</h3>

@@ -12,7 +12,7 @@ class FavoritesService {
   FavoritesService(this._mangaService);
 
   List get favoriteManga =>
-      _mangaService.mangas.where((m) => favorites.contains(m['id'])).toList();
+      _mangaService.mangas.where((m) => favorites.contains(m['i'])).toList();
 
   void add(String favorite) {
     favorites.add(favorite);
@@ -30,8 +30,8 @@ class FavoritesService {
             ..addAll(favorites);
         }
       }
-    } catch (_) {
-      //
+    } catch (e) {
+      print(e);
     }
   }
 

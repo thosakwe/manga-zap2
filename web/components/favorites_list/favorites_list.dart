@@ -16,6 +16,7 @@ class FavoritesListComponent implements OnActivate, OnDeactivate {
   final FavoritesService _favoritesService;
   final TitleService _titleService;
 
+  List get favorites => _favoritesService.favorites;
   List<Map> get mangas => _favoritesService.favoriteManga;
 
   FavoritesListComponent(this._favoritesService, this._titleService);

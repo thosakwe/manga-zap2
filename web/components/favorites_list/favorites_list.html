@@ -1,9 +1,9 @@
 <div *ngIf="mangas.isEmpty" class="content">
     <h1>You have no favorites.</h1>
 </div>
-<material-menu *ngIf="mangas.isNotEmpty">
+<div *ngIf="mangas.isNotEmpty" style="padding-top: 0.5em">
     <menu-item *ngFor="let manga of mangas; let i = index" [avatar]="manga['im'] | eden_image"
         [routerLink]="['../Detail', {id: manga['i']}]" [separated]="i < mangas.length - 1">
         {{ manga['t'] }}
     </menu-item>
-</material-menu>
+</div>
