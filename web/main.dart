@@ -4,6 +4,7 @@ import 'package:angular2/platform/common.dart';
 import 'package:angular2/router.dart';
 import 'package:angular2_components/angular2_components.dart';
 import 'components/app/app.dart';
+import 'services/favorites.dart';
 import 'services/manga.dart';
 import 'services/title.dart';
 
@@ -11,6 +12,7 @@ main() {
   bootstrap(AppComponent, [
     materialProviders,
     ROUTER_PROVIDERS,
+    FavoritesService,
     MangaService,
     TitleService,
     provide(LocationStrategy, useClass: HashLocationStrategy)

@@ -7,8 +7,10 @@ version: "1.0.0"
 dependencies: 
   angular2: "^2.2.0"
   angular2_components: "^0.2.1"
+  html_unescape: "^0.1.4"
   http: "^0.11.3+9"
   material_menu: "^1.0.0"
+  material_sidenav: "^1.0.0"
   material_toolbar: "^1.0.0"
 dev_dependencies: 
   browser: "^0.10.0+2"

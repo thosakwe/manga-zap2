@@ -1,0 +1,16 @@
+<div>Categories</div>
+<material-chips>
+    <material-chip *ngFor="let category of query.categories" (remove)="query.categories.remove(category)">
+        {{ category }}
+    </material-chip>
+</material-chips>
+<br>
+<select #categorySelect>
+    <option value="">Add a Category...</option>
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+</select>
+<material-button (trigger)="addCategory()">
+    Add
+</material-button>
+<br>
+<material-input [(ngModel)]="query.title" floatingLabel label="Title"></material-input>

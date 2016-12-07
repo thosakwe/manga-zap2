@@ -1,0 +1,27 @@
+:host {
+    padding: 1em;
+}
+
+.content {
+    padding: 1em;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        flex-wrap: wrap;
+    }
+}
+
+.grid > .col {
+    flex-grow: 1;
+}
+
+.loading {
+    padding: 5em;
+    text-align: center;
+}

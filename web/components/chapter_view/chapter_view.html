@@ -1,0 +1,24 @@
+<div *ngIf="loading" class="loading">
+    <material-spinner></material-spinner>
+    <br><br> Loading manga #{{ id }}...
+</div>
+<div *ngIf="!loading && error">
+    <h3>Load failure.</h3>
+</div>
+<div *ngIf="!loading && !error">
+    <br>
+    <span>Page {{ index + 1 }} of {{ images.length }}</span>
+    <br><br>
+    <img *ngIf="current != null" (click)="forward()" src="{{ src | eden_image }}">
+    <br><br>
+    <span>Page {{ index + 1 }} of {{ images.length }}</span>
+    <br>
+    <div class="buttons">
+        <material-button (trigger)="back()" [disabled]="index <= 0">
+            <glyph icon="arrow_back"></glyph>
+        </material-button>
+        <material-button (trigger)="forward()" [disabled]="index >= images.length - 1">
+            <glyph icon="arrow_forward"></glyph>
+        </material-button>
+    </div>
+</div>

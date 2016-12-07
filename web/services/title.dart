@@ -4,6 +4,7 @@ import 'package:angular2/angular2.dart';
 @Injectable()
 class TitleService {
   String _title = 'Home';
+  bool root = true;
 
   String getTitle() => _title;
 

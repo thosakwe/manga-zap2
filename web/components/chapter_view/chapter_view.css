@@ -1,0 +1,19 @@
+:host {
+    text-align: center;
+    overflow: scroll;
+}
+
+img {
+    cursor: pointer;
+    margin: auto;
+    max-width: 100%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons > material-button {
+    flex-grow: 1;
+}

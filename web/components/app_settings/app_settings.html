@@ -1,0 +1,22 @@
+<div *ngIf="downloading" class="content">
+    <material-spinner></material-spinner>
+    Downloading manga database...
+</div>
+<div *ngIf="!downloading && error" class="content">
+    Error downloading manga database.
+    <br><br>
+    <material-button (trigger)="download()" raised>
+        <glyph icon="refresh"></glyph>
+        &nbsp;
+        Retry
+    </material-button>
+</div>
+<div *ngIf="!downloading && !error" class="content">
+    The manga database contains {{ manga.length }} manga.
+    <br><br>
+    <material-button (trigger)="download()" raised>
+        <glyph icon="cloud"></glyph>
+        &nbsp;
+        Update Manga Database
+    </material-button>
+</div>
