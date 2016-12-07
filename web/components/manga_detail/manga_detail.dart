@@ -33,7 +33,7 @@ class MangaDetailComponent implements OnActivate, OnDeactivate {
   final HtmlUnescape _unescape = new HtmlUnescape();
 
   List<List> get chapters => manga['chapters'];
-  String get desc => _unescape.convert(Uri.decodeFull(manga['description']));
+  String get desc => _unescape.convert(manga['description']);
   List<String> get favorites => _favoriteService.favorites;
   String get id => _routeParams.get('id');
 
