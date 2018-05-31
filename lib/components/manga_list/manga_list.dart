@@ -53,4 +53,6 @@ class MangaListComponent implements OnActivate {
     // ['../Detail', {id: manga['i']}]
     return new RoutePath(path: '/detail').toUrl(parameters: {'id': i});
   }
+
+  trackById(_, Map map) => map['i'];
 }
