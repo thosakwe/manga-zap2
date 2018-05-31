@@ -1,0 +1,40 @@
+<div *ngIf="loading" class="content">
+    <material-spinner></material-spinner>
+    <br><br> Loading manga...
+</div>
+<div *ngIf="!loading && mangas.isEmpty" class="content">
+    <h1>No Manga Found.</h1>
+    <p>It's the end of the world.</p>
+    <br>
+    <material-button (click)="fetchMangas()" raised>Reload</material-button>
+</div>
+<modal [visible]="showDialog">
+    <material-dialog>
+        <div header>
+            <h3>
+                <glyph icon="filter_list"></glyph>
+                <span style="vertical-align: middle">Filter</span>
+            </h3>
+        </div>
+        <search-form [query]="query"></search-form>
+        <div footer>
+            <material-button (trigger)="query.clear()">
+                CLEAR
+            </material-button>
+            <material-button (trigger)="showDialog = false">
+                OK
+            </material-button>
+        </div>
+    </material-dialog>
+</modal>
+<material-list *ngIf="!loading && mangas.isNotEmpty">
+    <material-list-item
+            *ngFor="let manga of mangas | search:query; let i = index"
+            [routerLink]="detailUrl(manga['i'])">
+        <img [src]="manga['im'] | eden_image" class="material-list-item-primary">
+        {{ manga['t'] }}
+    </material-list-item>
+</material-list>
+<material-fab *ngIf="!loading && mangas.isNotEmpty" (click)="showDialog = true" raised>
+    <glyph icon="search"></glyph>
+</material-fab>

@@ -1,0 +1,12 @@
+<div *ngIf="mangas.isEmpty" class="content">
+    <h1>You have no favorites.</h1>
+</div>
+<material-list *ngIf="mangas.isNotEmpty">
+    <material-list-item
+            *ngFor="let manga of mangas; let i = index"
+            [routerLink]="detailUrl(manga['i'])"
+            [class.separated]="i < mangas.length - 1">
+        <img [src]="manga['im'] | eden_image" class="material-list-item-primary">
+        {{ manga['t'] }}
+    </material-list-item>
+</material-list>

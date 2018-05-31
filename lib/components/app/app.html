@@ -1,0 +1,31 @@
+<material-drawer temporary #drawer="drawer" overlay>
+    <material-list *deferredContent>
+        <material-list-item [routerLink]="route('/')">
+            <material-icon class="material-list-item-primary" icon="list"></material-icon>
+            Browse
+        </material-list-item>
+        <material-list-item [routerLink]="route('/favorites')" icon="favorite">
+            <material-icon class="material-list-item-primary" icon="favorite"></material-icon>
+            Favorites
+        </material-list-item>
+        <material-list-item [routerLink]="route('/settings')">
+            <material-icon class="material-list-item-primary" icon="settings"></material-icon>
+            Settings...
+        </material-list-item>
+    </material-list>
+</material-drawer>
+<header class="material-header shadow">
+    <div class="material-header-row">
+        <material-button icon class="material-drawer-button" (trigger)="drawer.toggle()">
+            <material-icon icon="menu"></material-icon>
+        </material-button>
+        <span class="material-header-title">{{ title }}</span>
+        <div class="material-spacer"></div>
+        <nav class="material-navigation">
+            <material-button icon>
+                <material-icon icon="search"></material-icon>
+            </material-button>
+        </nav>
+    </div>
+</header>
+<router-outlet [routes]="routes"></router-outlet>

@@ -1,0 +1,40 @@
+<div *ngIf="loading" class="loading">
+    <material-spinner></material-spinner>
+    <br><br>
+    Loading manga #{{ id }}...
+</div>
+<div *ngIf="!loading && error">
+    <h3>Load failure.</h3>
+</div>
+<div *ngIf="!loading && !error">
+    <div class="content grid">
+        <div class="col" style="text-align: center;">
+            <img src="{{ manga['image'] | eden_image }}" style="max-width: 20em">
+            <material-checkbox (checkedChange)="updateFavorites($event)"
+                               [checked]="favorites.contains(id)"></material-checkbox>
+            Favorite
+        </div>
+        <div class="content col">
+            <h3>{{ manga['title'] }} by {{ manga['author']?.isNotEmpty == true ? manga['author'] : 'Unknown Author'
+                }}</h3>
+            <i>{{ desc }}</i>
+            <br>
+            <material-chips>
+                <material-chip *ngFor="let category of manga['categories']" [removable]="false">
+                    {{ category }}
+                </material-chip>
+            </material-chips>
+        </div>
+    </div>
+    <div *ngIf="chapters == null || chapters.isEmpty">
+        <i>No chapters found.</i>
+    </div>
+    <div *ngIf="chapters != null && chapters.isNotEmpty" id="menu">
+        <p
+            *ngFor="let chapter of chapters; let i = index"
+            [routerLink]="chapterUrl(chapter[3])"
+            [class.separated]="i < chapters.length - 1">
+            #{{ i + 1 }}: {{ chapter[2] }}
+        </p>
+    </div>
+</div>

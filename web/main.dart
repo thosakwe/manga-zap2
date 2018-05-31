@@ -1,20 +1,20 @@
-import 'package:angular2/angular2.dart';
-import 'package:angular2/platform/browser.dart';
-import 'package:angular2/platform/common.dart';
-import 'package:angular2/router.dart';
-import 'package:angular2_components/angular2_components.dart';
-import 'components/app/app.dart';
-import 'services/favorites.dart';
-import 'services/manga.dart';
-import 'services/title.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_components/angular_components.dart';
+import 'package:angular_router/angular_router.dart';
+import 'package:manga_zap/components/app/app.template.dart' as app;
+import 'package:manga_zap/services/services.dart';
+import 'package:pwa/client.dart' as pwa;
+import 'main.template.dart' as ng;
+
+@GenerateInjector([
+  materialProviders,
+  routerProviders,
+  mangaZapProviders,
+  const Provider(LocationStrategy, useClass: HashLocationStrategy)
+])
+final InjectorFactory mangaZapApp = ng.mangaZapApp$Injector;
 
 main() {
-  bootstrap(AppComponent, [
-    materialProviders,
-    ROUTER_PROVIDERS,
-    FavoritesService,
-    MangaService,
-    TitleService,
-    provide(LocationStrategy, useClass: HashLocationStrategy)
-  ]);
+  //new pwa.Client();
+  runApp(app.AppComponentNgFactory, createInjector: mangaZapApp);
 }
